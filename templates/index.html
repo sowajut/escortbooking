@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Simple Escorts - Home</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      display: flex;
+      min-height: 100vh;
+      background: #f0f2f5;
+    }
+
+    /* Sidebar with background image */
+    .sidebar {
+      width: 40%;
+      background: url("static/images/style13.jpg") no-repeat center center;
+      background-size: cover;
+      position: relative;
+      color: #fff;
+    }
+
+    .sidebar::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5); /* dark overlay */
+    }
+
+    .sidebar-content {
+      position: relative;
+      z-index: 1;
+      padding: 40px 30px;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .sidebar-content h1 {
+      font-size: 36px;
+      color: #fff;
+      margin-bottom: 20px;
+    }
+
+    .sidebar-content p {
+      font-size: 18px;
+      color: #ddd;
+      line-height: 1.5;
+    }
+
+    /* Main content */
+    .main-content {
+      width: 60%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 60px 40px;
+      background: linear-gradient(to bottom right, #a8d0ff, #5a9bd8);
+      color: #333;
+    }
+
+    header h1 a {
+      text-decoration: none;
+      color: #fff;
+      font-size: 32px;
+    }
+
+    nav {
+      margin: 20px 0;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #f0f8ff;
+      margin-right: 20px;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #fff;
+    }
+
+    .welcome h2 {
+      font-size: 42px;
+      color: #fff;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.2);
+    }
+
+    .welcome p {
+      margin-top: 10px;
+      font-size: 20px;
+      color: #f0f8ff;
+    }
+
+    .button-group {
+      margin-top: 30px;
+    }
+
+    .button-group a {
+      display: inline-block;
+      background-color: #fff;
+      color: #5a9bd8;
+      text-decoration: none;
+      padding: 12px 30px;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: all 0.3s ease;
+    }
+
+    .button-group a:hover {
+      background-color: #3a7bc1;
+      color: #fff;
+    }
+
+    .social-links {
+      margin-top: 30px;
+    }
+
+    .social-links a {
+      text-decoration: none;
+      color: #eee;
+      margin: 0 10px;
+      font-size: 14px;
+    }
+
+    .social-links a:hover {
+      color: #fff;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: auto;
+      padding: 20px;
+      font-size: 14px;
+      color: #ccc;
+    }
+
+    /* Responsive */
+    @media screen and (max-width: 900px) {
+      body {
+        flex-direction: column;
+      }
+
+      .sidebar, .main-content {
+        width: 100%;
+        height: 50vh;
+      }
+
+      .main-content {
+        padding: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sidebar with background image -->
+  <aside class="sidebar">
+    <div class="sidebar-content">
+      <h1>Simple Escorts</h1>
+      <p>Your trusted companion service</p>
+    </div>
+  </aside>
+
+  <!-- Main content -->
+  <div class="main-content">
+    <header>
+      <h1><a href="{{ url_for('home') }}">Welcome to Simple Escorts Services</a></h1>
+    </header>
+
+    <nav>
+      <a href="{{ url_for('home') }}">Home </a>
+      <a href="{{ url_for('gallery') }}">Gallery</a>
+      <a href="{{ url_for('services') }}">Services</a>
+      <a href="{{ url_for('about') }}">About</a>
+      <a href="{{ url_for('escort_list') }}">Escort List</a>
+    </nav>
+
+    <div class="welcome">
+      <h2>Browse our selection of escort and call girl service</h2>
+    </div>
+
+    <div class="social-links">
+      <a href="#">Twitter</a>
+      <a href="#">Facebook</a>
+      <a href="#">Instagram</a>
+      <a href="#">Skype</a>
+      <a href="#">LinkedIn</a>
+    </div>
+
+    <footer>
+      Designed by OLUWAFERANMI
+    </footer>
+  </div>
+
+</body>
+</html>

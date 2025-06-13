@@ -1,0 +1,226 @@
+/*----------------------------------------------
+  Base Styles
+------------------------------------------------*/
+:root {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  background-color: #f6f9ff;
+  color: #444;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: #4154f1;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+a:hover {
+  color: #717ff5;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Nunito", sans-serif;
+  margin: 0;
+  color: #012970;
+}
+
+/*----------------------------------------------
+  Main Layout
+------------------------------------------------*/
+#main {
+  margin-top: 60px;
+  padding: 20px 30px;
+  transition: all 0.3s;
+}
+
+@media (max-width: 1199px) {
+  #main {
+    padding: 20px;
+  }
+}
+
+.pagetitle {
+  margin-bottom: 10px;
+}
+
+.pagetitle h1 {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+/*----------------------------------------------
+  Back to Top Button
+------------------------------------------------*/
+.back-to-top {
+  position: fixed;
+  right: 15px;
+  bottom: 15px;
+  width: 40px;
+  height: 40px;
+  background: #4154f1;
+  border-radius: 4px;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.4s;
+  z-index: 9999;
+}
+
+.back-to-top:hover {
+  background: #6776f4;
+}
+
+.back-to-top.active {
+  visibility: visible;
+  opacity: 1;
+}
+
+/*----------------------------------------------
+  Card Component
+------------------------------------------------*/
+.card {
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 0 30px rgba(1, 41, 112, 0.1);
+  margin-bottom: 30px;
+  background-color: #fff;
+}
+
+.card-header, .card-footer {
+  background-color: #fff;
+  color: #798eb3;
+  padding: 15px;
+  border-top: 1px solid #ebeef4;
+}
+
+.card-title {
+  font-family: "Poppins", sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  color: #012970;
+  padding: 20px 0 15px;
+}
+
+.card-body {
+  padding: 0 20px 20px;
+}
+
+/*----------------------------------------------
+  Header
+------------------------------------------------*/
+.header {
+  background-color: #fff;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+  box-shadow: 0 2px 20px rgba(1, 41, 112, 0.1);
+  position: relative;
+  z-index: 997;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  height: 26px;
+  margin-right: 6px;
+}
+
+.logo span {
+  font-size: 26px;
+  font-weight: 700;
+  font-family: "Nunito", sans-serif;
+  color: #012970;
+}
+
+/*----------------------------------------------
+  Sidebar
+------------------------------------------------*/
+.sidebar {
+  position: fixed;
+  top: 60px;
+  left: 0;
+  bottom: 0;
+  width: 300px;
+  background-color: #fff;
+  padding: 20px;
+  overflow-y: auto;
+  box-shadow: 0 0 20px rgba(1, 41, 112, 0.1);
+  transition: left 0.3s;
+  z-index: 996;
+}
+
+@media (max-width: 1199px) {
+  .sidebar {
+    left: -300px;
+  }
+}
+
+/*----------------------------------------------
+  Alerts
+------------------------------------------------*/
+.alert-heading {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+}
+
+/*----------------------------------------------
+  Custom Backgrounds
+------------------------------------------------*/
+.bg-primary-light { background-color: #cfe2ff; }
+.bg-secondary-light { background-color: #e2e3e5; }
+.bg-success-light { background-color: #d1e7dd; }
+.bg-danger-light { background-color: #f8d7da; }
+.bg-warning-light { background-color: #fff3cd; }
+.bg-info-light { background-color: #cff4fc; }
+.bg-dark-light { background-color: #d3d3d4; }
+
+/*----------------------------------------------
+  Utility and Override Classes
+------------------------------------------------*/
+.btn-close {
+  background-size: 25%;
+  outline: none;
+  box-shadow: none;
+}
+
+.breadcrumb {
+  font-size: 14px;
+  font-family: "Nunito", sans-serif;
+  color: #899bbd;
+  font-weight: 600;
+}
+
+.breadcrumb a:hover {
+  color: #51678f;
+}
+
+.nav-tabs-bordered {
+  border-bottom: 2px solid #ebeef4;
+}
+
+.nav-tabs-bordered .nav-link.active {
+  color: #4154f1;
+  border-bottom: 2px solid #4154f1;
+  background-color: #fff;
+}
+
+/*----------------------------------------------
+  Animation
+------------------------------------------------*/
+@keyframes dropdown-animate {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}

@@ -1,0 +1,362 @@
+<!-- escort-list.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Book Escort</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      display: flex;
+      min-height: 100vh;
+      background: #f0f2f5;
+    }
+
+    /* Sidebar with background image */
+    .sidebar {
+      width: 40%;
+      background: url("{{ url_for('static', filename='images/style13.jpg') }}") no-repeat center center;
+      background-size: cover;
+      position: relative;
+      color: #fff;
+    }
+
+    .sidebar::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5); /* dark overlay */
+    }
+
+    .sidebar-content {
+      position: relative;
+      z-index: 1;
+      padding: 40px 30px;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .sidebar-content h1 {
+      font-size: 36px;
+      color: #fff;
+      margin-bottom: 20px;
+    }
+
+    .sidebar-content p {
+      font-size: 18px;
+      color: #ddd;
+      line-height: 1.5;
+    }
+
+    .main-content {
+      width: 60%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 60px 40px;
+      background: linear-gradient(to bottom right, #a8d0ff, #5a9bd8);
+      color: #333;
+    }
+
+     header h1 {
+      font-size: 32px;
+      color: #fff;
+      margin-bottom: 20px;
+    }
+
+    nav {
+      margin-bottom: 20px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #f0f8ff;
+      margin-right: 20px;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #fff;
+    }
+
+    form {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    label {
+      display: block;
+      margin: 15px 0 5px;
+      font-weight: bold;
+      color: #000;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="date"],
+    select {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid gold;
+      background: #fff;
+      color: #000;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    .time-select {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 15px;
+    }
+
+    .time-select select {
+      flex: 1;
+    }
+
+    .section-title {
+      font-size: 20px;
+      margin-top: 30px;
+      margin-bottom: 10px;
+      color: #000;
+    }
+
+    .submit-button {
+      background: rgb(255, 255, 253);
+      color: #000;
+      padding: 12px;
+      width: 100%;
+      font-size: 18px;
+      font-weight: bold;
+      border: none;
+      border-radius: 5px;
+      margin-top: 30px;
+      cursor: pointer;
+    }
+
+    .submit-button:hover {
+      background: #5100ff;
+    }
+
+    .escort-profile {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      margin: 40px auto 20px;
+      border: 1px solid gold;
+      padding: 20px;
+      border-radius: 12px;
+      background-color: #111;
+      max-width: 600px;
+    }
+
+    .escort-img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid rgb(254, 254, 253);
+    }
+
+    .escort-info h2 {
+      margin: 0;
+      font-size: 24px;
+      color: rgb(254, 254, 254);
+    }
+
+    .escort-info p {
+      margin: 10px 0 0;
+      font-size: 16px;
+      line-height: 1.5;
+      color: #ddd;
+    }
+
+     .social-links {
+      margin-top: 30px;
+    }
+
+    .social-links a {
+      text-decoration: none;
+      color: #eee;
+      margin: 0 10px;
+      font-size: 14px;
+    }
+
+    .social-links a:hover {
+      color: #fff;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: auto;
+      padding: 20px;
+      font-size: 14px;
+      color: #ccc;
+    }
+
+    @media screen and (max-width: 900px) {
+      body {
+        flex-direction: column;
+      }
+
+      .sidebar, .main-content {
+        width: 100%;
+        height: auto;
+      }
+
+      .main-content {
+        padding: 30px;
+      }
+
+      .escort-profile {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .escort-img {
+        width: 100px;
+        height: 100px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-content">
+      <h1>Simple Escorts</h1>
+      <p>Your trusted companion service</p>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <div class="main-content">
+     <header>
+       <h1>Book Your Escort</h1>
+     </header>
+
+    <nav>
+      <a href="{{ url_for('home') }}">Home </a>
+      <a href="{{ url_for('gallery') }}">Gallery</a>
+      <a href="{{ url_for('services') }}">Services</a>
+      <a href="{{ url_for('about') }}">About</a>
+      <a href="{{ url_for('escort_list') }}">Escort List</a>
+    </nav>
+
+    {% for escort in escorts %}
+    <div class="escort-profile">
+      <img src="{{ url_for('static', filename=escort['image']) }}" alt="{{ escort['name'] }}" class="escort-img">
+      <div class="escort-info">
+        <h2>{{ escort['name'] }}</h2>
+        <p>Available for private bookings. Click your details below to chat me on whatsapp.</p>
+      </div>
+    </div>
+    {% endfor %}
+
+
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul style="color: green;">
+          {% for message in messages %}
+            <li>{{ message }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+
+
+    <form method="POST" action="{{ url_for('escort_list') }}">
+      <div class="section-title">Your Details</div>
+
+      <label>* Full Name:</label>
+      <input type="text" name="full_name" required>
+
+      <label>* Email:</label>
+      <input type="email" name="email" required>
+
+      <label>* Telephone Number:</label>
+      <input type="text" name="phone" required>
+
+      <div class="section-title">Appointment Details</div>
+
+      <label>* Date of Booking:</label>
+      <input type="date" name="booking_date" required>
+
+      <label>* Time of Booking:</label>
+      <div class="time-select">
+        <select name="hour" required>
+          <option value="">—Ple—</option>
+          {% for h in range(1, 13) %}
+            <option value="{{ "%02d" % h }}">{{ "%02d" % h }}</option>
+          {% endfor %}
+        </select>
+        <select name="minute" required>
+          <option value="">—Ple—</option>
+          {% for m in range(0, 60) %}
+            <option value="{{ "%02d" % m }}">{{ "%02d" % m }}</option>
+          {% endfor %}
+        </select>
+        <select name="ampm" required>
+          <option value="">—Ple—</option>
+          <option value="AM">AM</option>
+          <option value="PM">PM</option>
+        </select>
+      </div>
+
+      <label>* Duration:</label>
+      <select name="duration" required>
+        <option value="">—Please choose an option—</option>
+        <option value="30 minutes">30 minutes</option>
+        <option value="1 hour">1 hour</option>
+        <option value="2 hours">2 hours</option>
+        <option value="Overnight">Overnight</option>
+      </select>
+
+      <label>* Incall/Outcall:</label>
+      <select name="location_type" required>
+        <option value="">—Please choose an option—</option>
+        <option value="Incall">Incall</option>
+        <option value="Outcall">Outcall</option>
+      </select>
+
+      <label>* Choose Escort:</label>
+      <select name="escort" required>
+        <option value="">—Please choose an escort—</option>
+        {% for escort in escorts %}
+        <option value="{{ escort.name }}">{{ escort.name }}</option>
+        {% endfor %}
+      </select>
+
+      <button type="submit" class="submit-button">Submit Booking</button>
+    </form>
+    <div class="social-links">
+      <a href="#">Twitter</a>
+      <a href="#">Facebook</a>
+      <a href="#">Instagram</a>
+      <a href="#">Skype</a>
+      <a href="#">LinkedIn</a>
+    </div>
+
+    <footer>
+      Designed by OLUWAFERANMI
+    </footer>
+  </div>
+  </main>
+  
+
+</body>
+</html>
