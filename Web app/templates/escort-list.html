@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Book Escort</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --main-bg: #0f0d0d;
+      --gold: #d4af37;
+      --white: #f5f5f5;
+      --light-gray: #ccc;
+      --form-bg: #1a1818;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--main-bg);
+      display: flex;
+      flex-direction: row;
+      min-height: 100vh;
+      color: var(--white);
+    }
+
+    .sidebar {
+      width: 45%;
+      background: url("{{ url_for('static', filename='images/style18.jpg') }}") no-repeat center center;
+      background-size: cover;
+      position: relative;
+    }
+
+    .sidebar::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.6);
+    }
+
+    .sidebar-content {
+      position: relative;
+      z-index: 1;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 40px;
+    }
+
+    .sidebar-content h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 42px;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+
+    .sidebar-content p {
+      font-size: 16px;
+      color: var(--white);
+      opacity: 0.9;
+    }
+
+    .main-content {
+      width: 55%;
+      padding: 50px;
+      background: var(--form-bg);
+      display: flex;
+      flex-direction: column;
+    }
+
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 32px;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+
+    nav {
+      margin-bottom: 30px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--white);
+      margin-right: 20px;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: var(--gold);
+    }
+
+    .escort-profile {
+      background: #141313;
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 30px;
+      border: 1px solid var(--gold);
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .escort-img {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 2px solid var(--white);
+    }
+
+    .escort-info h2 {
+      font-size: 20px;
+      color: var(--gold);
+      margin: 0;
+    }
+
+    .escort-info p {
+      font-size: 14px;
+      color: var(--light-gray);
+      margin-top: 5px;
+    }
+
+    .section-title {
+      font-size: 18px;
+      margin: 20px 0 10px;
+      font-weight: bold;
+      color: var(--gold);
+    }
+
+    form {
+      background: #121212;
+      padding: 30px;
+      border-radius: 10px;
+      border: 1px solid var(--gold);
+    }
+
+    label {
+      font-size: 14px;
+      color: var(--white);
+      margin-bottom: 5px;
+      display: block;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="date"],
+    select {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #333;
+      border-radius: 5px;
+      background: #1f1f1f;
+      color: var(--white);
+      font-size: 15px;
+    }
+
+    .time-select {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 15px;
+    }
+
+    .time-select select {
+      flex: 1;
+    }
+
+    .submit-button {
+      background: var(--gold);
+      color: var(--main-bg);
+      padding: 12px;
+      width: 100%;
+      font-size: 16px;
+      font-weight: bold;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .submit-button:hover {
+      background: #fff;
+    }
+
+    .social-links {
+      margin-top: 30px;
+      text-align: center;
+    }
+
+    .social-links a {
+      color: var(--white);
+      margin: 0 10px;
+      font-size: 16px;
+    }
+
+    .social-links a:hover {
+      color: var(--gold);
+    }
+
+    footer {
+      margin-top: 40px;
+      text-align: center;
+      font-size: 12px;
+      color: #777;
+    }
+
+    @media screen and (max-width: 900px) {
+      body {
+        flex-direction: column;
+      }
+
+      .sidebar, .main-content {
+        width: 100%;
+        padding: 20px;
+      }
+
+      .escort-profile {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .escort-img {
+        width: 100px;
+        height: 100px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-content">
+      <h1>Book Precious</h1>
+      <p>Your trusted companion awaits</p>
+      <p>Fill in your details below</p>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <header>
+      <h1>Book Your Escort</h1>
+    </header>
+
+    <nav>
+      <a href="{{ url_for('home') }}">Home</a>
+      <a href="{{ url_for('gallery') }}">Gallery</a>
+      <a href="{{ url_for('services') }}">Services</a>
+      <a href="{{ url_for('about') }}">About</a>
+      <a href="{{ url_for('escort_list') }}">Escort List</a>
+    </nav>
+
+    {% for escort in escorts %}
+    <div class="escort-profile">
+      <img src="{{ url_for('static', filename=escort['image']) }}" class="escort-img" alt="{{ escort['name'] }}">
+      <div class="escort-info">
+        <h2>{{ escort['name'] }}</h2>
+        <p>Charming, classy, and fun - Precious is your ideal companion for private moments or upscale outings</p>
+      </div>
+    </div>
+    {% endfor %}
+
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul style="color: green;">
+          {% for message in messages %}
+            <li>{{ message }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+
+    <form method="POST" action="{{ url_for('escort_list') }}">
+      <div class="section-title">Your Details</div>
+
+      <label>Full Name:</label>
+      <input type="text" name="full_name" required>
+
+      <label>Email:</label>
+      <input type="email" name="email" required>
+
+      <label>Telephone Number:</label>
+      <input type="text" name="phone" required>
+
+      <div class="section-title">Appointment Details</div>
+
+      <label>Date of Booking:</label>
+      <input type="date" name="booking_date" required>
+
+      <label>Time of Booking:</label>
+      <div class="time-select">
+        <select name="hour" required>
+          <option value="">Hour</option>
+          {% for h in range(1, 13) %}
+            <option value="{{ "%02d" % h }}">{{ "%02d" % h }}</option>
+          {% endfor %}
+        </select>
+        <select name="minute" required>
+          <option value="">Min</option>
+          {% for m in range(0, 60) %}
+            <option value="{{ "%02d" % m }}">{{ "%02d" % m }}</option>
+          {% endfor %}
+        </select>
+        <select name="ampm" required>
+          <option value="AM">AM</option>
+          <option value="PM">PM</option>
+        </select>
+      </div>
+
+      <label>Duration:</label>
+      <select name="duration" required>
+        <option value="30 minutes">30 minutes</option>
+        <option value="1 hour">1 hour</option>
+        <option value="2 hours">2 hours</option>
+        <option value="Overnight">Overnight</option>
+      </select>
+
+      <label>Incall/Outcall:</label>
+      <select name="location_type" required>
+        <option value="Incall">Incall</option>
+        <option value="Outcall">Outcall</option>
+      </select>
+
+      <label>Choose Escort:</label>
+      <select name="escort" required>
+        {% for escort in escorts %}
+        <option value="{{ escort.name }}">{{ escort.name }}</option>
+        {% endfor %}
+      </select>
+
+      <button type="submit" class="submit-button">Submit Booking</button>
+    </form>
+
+    <div class="social-links">
+      <a href="#">Twitter</a>
+      <a href="#">Facebook</a>
+      <a href="#">Instagram</a>
+      <a href="#">Skype</a>
+      <a href="#">LinkedIn</a>
+    </div>
+
+    <footer>
+      Designed by ELIJAHISHOMEYANG
+    </footer>
+  </div>
+</body>
+</html>

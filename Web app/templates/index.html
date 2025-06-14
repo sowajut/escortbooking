@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Simple Escorts - Home</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+  :root {
+    --main-bg: #0f0d0d;
+    --gold: #d4af37;
+    --white: #f5f5f5;
+    --light-gray: #ccc;
+    --form-bg: #1a1818;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--main-bg);
+    display: flex;
+    flex-direction: row;
+    min-height: 100vh;
+    color: var(--white);
+  }
+
+  .sidebar {
+    width: 45%;
+    background: url("{{ url_for('static', filename='images/style18.jpg') }}") no-repeat center center;
+    background-size: cover;
+    position: relative;
+  }
+
+  .sidebar::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+  }
+
+  .sidebar-content {
+    position: relative;
+    z-index: 1;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 40px;
+  }
+
+  .sidebar-content h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 42px;
+    color: var(--gold);
+    margin-bottom: 10px;
+  }
+
+  .sidebar-content p {
+    font-size: 16px;
+    color: var(--white);
+    opacity: 0.9;
+  }
+
+  .main-content {
+    width: 55%;
+    padding: 60px 50px;
+    background: var(--form-bg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    color: var(--gold);
+    margin-bottom: 10px;
+  }
+
+  nav {
+    margin-bottom: 30px;
+  }
+
+  nav a {
+    text-decoration: none;
+    color: var(--white);
+    margin-right: 20px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+
+  nav a:hover {
+    color: var(--gold);
+  }
+
+  .welcome {
+    margin-top: 20px;
+    max-width: 600px;
+  }
+
+  .welcome h2 {
+    font-size: 28px;
+    color: var(--gold);
+    margin-bottom: 10px;
+  }
+
+  .welcome p {
+    font-size: 18px;
+    color: var(--light-gray);
+  }
+
+  .button-group {
+    margin-top: 30px;
+  }
+
+  .button-group a {
+    display: inline-block;
+    background-color: var(--gold);
+    color: var(--main-bg);
+    text-decoration: none;
+    padding: 12px 30px;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    border: none;
+  }
+
+  .button-group a:hover {
+    background-color: #fff;
+    color: var(--main-bg);
+  }
+
+  .social-links {
+    margin-top: 30px;
+    text-align: center;
+  }
+
+  .social-links a {
+    color: var(--white);
+    margin: 0 10px;
+    font-size: 16px;
+    text-decoration: none;
+  }
+
+  .social-links a:hover {
+    color: var(--gold);
+  }
+
+  footer {
+    text-align: center;
+    margin-top: 40px;
+    padding: 20px;
+    font-size: 12px;
+    color: #777;
+  }
+
+  @media screen and (max-width: 900px) {
+    body {
+      flex-direction: column;
+    }
+
+    .sidebar, .main-content {
+      width: 100%;
+      padding: 30px;
+    }
+
+    .welcome h2 {
+      font-size: 24px;
+      text-align: center;
+    }
+
+    .button-group {
+      text-align: center;
+    }
+  }
+</style>
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-content">
+      <h1>Book Precious</h1>
+      <p>Your trusted companion awaits</p>
+      <p>Click on the book button to fill in your details</p>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <header>
+      <h1>Welcome to Precious Escort Services</h1>
+    </header>
+
+    <nav>
+      <a href="{{ url_for('home') }}">Home</a>
+      <a href="{{ url_for('about') }}">About</a>
+      <a href="{{ url_for('services') }}">Services</a>
+      <a href="{{ url_for('gallery') }}">Gallery</a>
+      <a href="{{ url_for('escort_list') }}">Escort List</a>
+    </nav>
+
+    <div class="welcome">
+      <h2>Browse my selection of gallery and call for my services</h2>
+      <p>I offer premium experiences with discretion and style.</p>
+    </div>
+
+    <div class="button-group">
+      <a href="{{ url_for('escort_list') }}">Book Now</a>
+    </div>
+
+    <div class="social-links">
+      <a href="#">Twitter</a>
+      <a href="#">Facebook</a>
+      <a href="#">Instagram</a>
+      <a href="#">Skype</a>
+      <a href="#">LinkedIn</a>
+    </div>
+
+    <footer>
+      Designed by ELIJAHISHOMEYANG
+    </footer>
+  </div>
+
+</body>
+</html>

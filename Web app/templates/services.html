@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Simple Escorts - Services</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+  :root {
+    --main-bg: #0f0d0d;
+    --gold: #d4af37;
+    --white: #f5f5f5;
+    --gray: #ccc;
+    --accent: #5a9bd8;
+    --form-bg: #1a1818;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    min-height: 100vh;
+    background: var(--main-bg);
+    color: var(--white);
+  }
+
+  .sidebar {
+    width: 45%;
+    background: url("{{ url_for('static', filename='images/style18.jpg') }}") no-repeat center center;
+    background-size: cover;
+    position: relative;
+  }
+
+  .sidebar::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+  }
+
+  .sidebar-content {
+    position: relative;
+    z-index: 1;
+    padding: 40px 30px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .sidebar-content h1 {
+    font-size: 36px;
+    color: var(--gold);
+    margin-bottom: 20px;
+    font-family: 'Playfair Display', serif;
+  }
+
+  .sidebar-content p {
+    font-size: 18px;
+    color: var(--white);
+    opacity: 0.9;
+    line-height: 1.5;
+  }
+
+  .main-content {
+    width: 55%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 60px 40px;
+    background: var(--form-bg);
+  }
+
+  header h1 a {
+    text-decoration: none;
+    color: var(--gold);
+    font-size: 32px;
+    font-family: 'Playfair Display', serif;
+  }
+
+  nav {
+    margin: 20px 0;
+  }
+
+  nav a {
+    text-decoration: none;
+    color: var(--white);
+    margin-right: 20px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+
+  nav a:hover {
+    color: var(--gold);
+  }
+
+  .welcome h2 {
+    font-size: 42px;
+    color: var(--gold);
+    text-shadow: 1px 1px 4px rgba(255, 255, 255, 0.1);
+    font-family: 'Playfair Display', serif;
+  }
+
+  .welcome p {
+    margin-top: 10px;
+    font-size: 20px;
+    color: var(--gray);
+    line-height: 1.6;
+  }
+
+  .button-group {
+    margin-top: 30px;
+  }
+
+  .button-group a {
+    display: inline-block;
+    background-color: var(--gold);
+    color: var(--main-bg);
+    text-decoration: none;
+    padding: 12px 30px;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+  }
+
+  .button-group a:hover {
+    background-color: var(--white);
+    color: var(--gold);
+  }
+
+  .social-links {
+    margin-top: 30px;
+  }
+
+  .social-links a {
+    text-decoration: none;
+    color: var(--white);
+    margin: 0 10px;
+    font-size: 14px;
+  }
+
+  .social-links a:hover {
+    color: var(--gold);
+  }
+
+  footer {
+    text-align: center;
+    margin-top: auto;
+    padding: 20px;
+    font-size: 14px;
+    color: #777;
+  }
+
+  @media screen and (max-width: 900px) {
+    body {
+      flex-direction: column;
+    }
+
+    .sidebar,
+    .main-content {
+      width: 100%;
+      padding: 30px;
+      height: auto;
+    }
+  }
+</style>
+</head>
+<body>
+
+  <!-- Sidebar with background image -->
+  <aside class="sidebar">
+    <div class="sidebar-content">
+      <h1>Book Precious</h1>
+      <p>Your trusted companion awaits</p>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <h1>💖 My Services</h1>
+    <p>Unforgettable moments tailored just for you — let's make every second count.</p>
+
+    <nav>
+      <a href="{{ url_for('home') }}">Home</a>
+      <a href="{{ url_for('about') }}">About</a>
+      <a href="{{ url_for('services') }}">Services</a>
+      <a href="{{ url_for('gallery') }}">Gallery</a>
+      <a href="{{ url_for('escort_list') }}">Escort List</a>
+    </nav>
+
+    <div class="services-grid">
+      <div class="service-box">
+        <h3>💋 GFE (Girlfriend Experience)</h3>
+        <p>Soft kisses, cuddles, deep convo, and that warm “she’s all mine” feeling.</p>
+      </div>
+      <div class="service-box">
+        <h3>🔥 Passionate Playtime</h3>
+        <p>Sensual moments, teasing touches, and full satisfaction.</p>
+      </div>
+      <div class="service-box">
+        <h3>💆‍♀️ Relaxing Sessions</h3>
+        <p>Massages, showers together, slow kisses... yes, that kind of relaxing.</p>
+      </div>
+      <div class="service-box">
+        <h3>👫 Private Companionship</h3>
+        <p>Dinner dates, late-night visits, or secret rendezvous — your place or mine.</p>
+      </div>
+      <div class="service-box">
+        <h3>🕒 Hourly / Overnight</h3>
+        <p>Let’s escape reality for a little while — hourly, overnight or weekend getaways.</p>
+      </div>
+    </div>
+
+    <div class="social-links">
+      <a href="#">Twitter</a>
+      <a href="#">Facebook</a>
+      <a href="#">Instagram</a>
+      <a href="#">Skype</a>
+      <a href="#">LinkedIn</a>
+    </div>
+    
+    <footer>
+      Designed by ELIJAHISHOMEYANG
+    </footer>
+  </div>
+
+</body>
+</html>
